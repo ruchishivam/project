@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My page</title>
+        <style>
+            body{
+                margin: 0px;
+            }
+            h1{
+                text-align: center;
+                text-transform: capitalize;
+            }
+            div{
+                height: 80px;
+                padding: 150px 50px;
+                padding-right: 60px;
+                /* background-color: rgb(115, 84, 43); */
+                /* background-color: rgb(182, 248, 226); */
+                background-color: rgba(77, 248, 191, 0.304);
+            }
+            #car{
+                float: left;
+                height: 90px;
+                margin-top: 20px;
+                position: relative;
+            }
+            #tree{
+                float: right;
+                height: 120px;
+            }
+            button{
+                margin: 20px 10px;
+                border-radius: 360px;
+                box-sizing: border-box;
+                box-shadow: inset;
+                text-transform: capitalize;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>car move project:</h1>
+        <!-- <hr/>
+        <a href="project 1.html">Home</a>
+        <a href="project 2.html">My Work</a>
+        <a href="project 3.html">contact us</a>
+        <hr/> -->
+        <div>
+            <img id="car" src="images/car.png" alt="car" />
+            <img id="tree" src="images/tree.png" alt="tree" />
+        </div>
+        <button onclick="f1()">go</button>
+        <button onclick="f2()">back</button>
+        <button onclick="f3()">stop</button>
+        <button onclick="f4()">reset</button>  
+    </body>
+    <script>
+        var car=document.getElementById("car");
+        var tree=document.getElementById("tree");
+        var i=0;
+        var j;
+        var w=window.innerWidth-270;
+        function f1(){
+            clearInterval(j);
+            j=setInterval(function(){
+                if(i<=w){
+                    i += 3;
+                    car.style.left=i+"px";
+                }
+                else{
+                    clearInterval(j);
+                    tree.style.transform="rotate(90deg) translate(20px,-30px)";
+                }
+            },1);
+        }
+        function f2(){
+            clearInterval(j);
+            j=setInterval(function(){
+                if(i>0){
+                    i -= 1;
+                    car.style.left=i+ "px";   
+                }
+                else{
+                    clearInterval(j);
+                }
+            },1);
+        }
+        function f3(){
+            clearInterval(j);
+        }
+        function f4(){
+            clearInterval(j);
+            i=0;
+            car.style.left= i+"px";
+            tree.style.transform="rotate(0deg)  translate(0px, 0px)";
+        }
+    </script>
+</html>
